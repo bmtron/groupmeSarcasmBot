@@ -16,7 +16,11 @@ botRouter.route('/')
 })
 .post(jsonParser, (req, res, next) => {
     let test = req.body;
+    let newItem = {
+        stuff: req.body
+    }
     bot.response(test).then(response => {
+        botService.addNewResponse(req.app.get('db'), newItem)
         res.json(response)
     })
 });
