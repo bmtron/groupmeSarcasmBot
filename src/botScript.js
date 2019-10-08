@@ -51,7 +51,7 @@ const https = require('https')
     }
 const response = {
     response() {
-        respond();
+        return respond();
     }
 }
 module.exports = response;
