@@ -1,7 +1,7 @@
 const https = require('https')
 
-const response = {
-    respond() {
+
+    function respond() {
         let request = JSON.parse(this.req)
         
         if (!request.text) {
@@ -14,8 +14,8 @@ const response = {
             sendSarcasticMessage(sarcasticResponse);
             this.res.end();
         }
-    },
-    sarcastic(str) {
+    }
+    function sarcastic(str) {
         str = str.toLowerCase();
         str = str.split('');
       
@@ -27,8 +27,8 @@ const response = {
         }
         str = str.join('')
         return str;
-      },
-        sendSarcasticMessage(res) {
+      }
+    function sendSarcasticMessage(res) {
         
         let body = {
             "bot_id": process.env.BOT_ID,
@@ -49,6 +49,9 @@ const response = {
         });
         botReq.end(JSON.stringify(body))
     }
+const response = {
+    response() {
+        respond();
+    }
 }
-
 module.exports = response;
