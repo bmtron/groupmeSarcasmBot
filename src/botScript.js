@@ -1,9 +1,9 @@
 const https = require('https')
 
 
-    function respond() {
-        let request = JSON.parse(this.req)
-        
+    function respond(req) {
+        let request = req;
+
         if (!request.text) {
             this.res.writeHead(200);
             this.res.end();
@@ -11,7 +11,7 @@ const https = require('https')
         else {
             let sarcasticResponse = sarcastic(request.text)
             this.res.writeHead(200);
-            sendSarcasticMessage(request.text);
+            sendSarcasticMessage(sarcasticResponse);
             this.res.end();
         }
     }
