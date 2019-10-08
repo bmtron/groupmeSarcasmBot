@@ -5,7 +5,7 @@ const botRouter = express.Router();
 
 botRouter.route('/')
 .post((req, res) => {
-    bot.response();
+    bot.response(req);
     
 });
 
