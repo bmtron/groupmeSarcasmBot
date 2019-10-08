@@ -11,7 +11,7 @@ const https = require('https')
         else {
             let sarcasticResponse = sarcastic(request.text)
             this.res.writeHead(200);
-            sendSarcasticMessage(sarcasticResponse);
+            sendSarcasticMessage(request.text);
             this.res.end();
         }
     }
