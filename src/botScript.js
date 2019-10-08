@@ -34,7 +34,7 @@ const https = require('https')
         };
         let botReq = https.request(options, (res) => {
             if (res.statusCode == 202) {
-    
+                console.log(res.statusCode)
             }
             else {
                 console.log('error ' + res.statusCode)
@@ -44,10 +44,7 @@ const https = require('https')
     }
 const response = {
     response(req) {
-        let resp = new Promise((resolve, reject) => {
-            resolve(respond(req))
-        })
-        return resp
+        return respond(req)
     },
     test(req) {
         let test = new Promise((resolve, reject) => {
