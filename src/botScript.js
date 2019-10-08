@@ -45,8 +45,8 @@ const https = require('https')
         botReq.end(JSON.stringify(body))
     }
 const response = {
-    response() {
-        return respond();
+    response(req) {
+        return respond(req);
     }
 }
 module.exports = response;
