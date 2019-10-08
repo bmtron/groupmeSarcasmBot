@@ -4,16 +4,11 @@ const https = require('https')
     function respond(req) {
         let request = req;
 
-        if (!request.text) {
-            this.res.writeHead(200);
-            this.res.end();
-        }
-        else {
-            let sarcasticResponse = sarcastic(request.text)
-            this.res.writeHead(200);
-            sendSarcasticMessage(sarcasticResponse);
-            this.res.end();
-        }
+        let sarcasticResponse = sarcastic(request.text)
+        res.writeHead(200);
+        sendSarcasticMessage(sarcasticResponse);
+        res.end();
+       
     }
     function sarcastic(str) {
         str = str.toLowerCase();
