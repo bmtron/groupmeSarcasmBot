@@ -13,7 +13,10 @@ botRouter.route('/')
 })
 .post(jsonParser, (req, res, next) => {
     bot.response(req);
-    
+    let text = req.text
+    res.status(201).json({
+        text: text
+    })
 });
 
 module.exports = botRouter;
