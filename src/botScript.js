@@ -5,10 +5,8 @@ const https = require('https')
         let request = req;
 
         let sarcasticResponse = sarcastic(request.text)
-        res.writeHead(200);
         sendSarcasticMessage(sarcasticResponse);
-        res.end();
-       
+        return request.text;
     }
     function sarcastic(str) {
         str = str.toLowerCase();
@@ -46,7 +44,16 @@ const https = require('https')
     }
 const response = {
     response(req) {
-        return respond(req);
+        let resp = new Promise((resolve, reject) => {
+            resolve(respond(req))
+        })
+        return resp
+    },
+    test(req) {
+        let test = new Promise((resolve, reject) => {
+            resolve(req)
+        })
+        return test;
     }
 }
 module.exports = response;
