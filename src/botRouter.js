@@ -20,7 +20,7 @@ botRouter.route('/')
         stuff: req.body
     }
     bot.response(test).then(response => {
-        botService.addNewResponse(req.app.get('db'), newItem)
+        console.log(response)
         res.json(response)
     })
 });
