@@ -16,16 +16,9 @@ botRouter.route('/')
 })
 .post(jsonParser, (req, res, next) => {
     let test = req.body;
-    let newItem = {
-        stuff: req.body
-    }
-    bot.response(test).then(stuff => {
-        botService.addNewResponse(req.app.get('db'), newItem).then(stuff => {
-            res.json(stuff)
-        }).catch(next)
+    bot.response(test).then(response => {
+        res.json(response)
     })
-    
-    
 });
 
 module.exports = botRouter;
